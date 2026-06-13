@@ -3,6 +3,8 @@ name: Build my Angular App
 on: 
   push:
       branches: [ main ]
+    permissions:
+      contents: write
 jobs:
   build-anguar-app:
     runs-on: ubuntu-latest
