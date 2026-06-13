@@ -22,9 +22,8 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
       - name: Build Angular App
-        run: ng run build -- --configuration production --base-href /Angular-Project-2/
+        run: npx ng build --configuration production --base-href /Angular-Project-2/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
