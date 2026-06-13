@@ -1,4 +1,4 @@
-name: Build my Angular App
+name: Deploy Angular App
 
 on:
   push:
@@ -9,17 +9,13 @@ permissions:
   contents: write
 
 jobs:
-  build-angular-app:
+  build:
     runs-on: ubuntu-latest
-
-    concurrency:
-      group: deploy
-      cancel-in-progress: true
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node JS
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -28,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: ng build --configuration production --base-href /Angular-Project-2/
+        run: ng run build -- --configuration production --base-href /Angular-Project-2/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
